@@ -5,7 +5,6 @@ load_dotenv()
 
 from tools import DataSummaryTool
 try:
-    # Hypothetical LangGraph public API imports (if installed)
     from langgraph import StateGraph, Node, Edge, InMemorySaver
     LANGGRAPH_AVAILABLE = True
 except Exception:
@@ -53,9 +52,8 @@ class LangGraphAgent:
                     return 'Fallback LLM — provide GROQ_API_KEY for full Groq-powered behavior.\n' + (prompt if isinstance(prompt, str) else str(prompt))[:600]
             self.llm = _FallbackLLM()
 
-    # ---------------------------
+
     # Graph construction
-    # ---------------------------
     def _build_real_graph(self):
         """
         Build a StateGraph using the langgraph API if available.
@@ -151,9 +149,7 @@ class LangGraphAgent:
             'trend': trend
         }
 
-    # ---------------------------
     # Runner
-    # ---------------------------
     def run(self, query: str):
         """
         Execute the graph for the given query and return a canonical dict:
