@@ -1,5 +1,5 @@
 # Core libraries
-langchain>=0.0.300
+langchain==0.0.350
 langchain-groq>=0.0.10
 langgraph>=0.0.30
 streamlit>=1.20
